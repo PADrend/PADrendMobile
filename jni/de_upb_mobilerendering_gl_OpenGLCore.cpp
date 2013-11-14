@@ -1,12 +1,13 @@
 /*
-	This file is part of the OpenGLCore library.
-	Copyright (C) 2010-2012 Benjamin Eikel <benjamin@eikel.org>
-	Copyright (C) 2010-2011 Robert Gmyr
-
-	This library is subject to the terms of the Mozilla Public License, v. 2.0.
-	You should have received a copy of the MPL along with this library; see the
-	file LICENSE. If not, you can obtain one at http://mozilla.org/MPL/2.0/.
-*/
+ * This file is part of the PADrendMobile project.
+ * Web page: http://www.padrend.de/
+ * Copyright (C) 2010-2012 Benjamin Eikel <benjamin@eikel.org>
+ * Copyright (C) 2010-2011 Robert Gmyr
+ *
+ * This project is subject to the terms of the Mozilla Public License, v. 2.0.
+ * You should have received a copy of the MPL along with this project; see the
+ * file LICENSE. If not, you can obtain one at http://mozilla.org/MPL/2.0/.
+ */
 #include "de_upb_mobilerendering_gl_OpenGLCore.h"
 
 #include <MinSG/Core/Behaviours/BehaviourManager.h>
