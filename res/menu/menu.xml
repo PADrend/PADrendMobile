@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuItemLoadScene" android:title="@string/loadScene"></item>
+
+
+<item android:title="@string/resetCamera" android:id="@+id/menuItemResetCamera"></item><item android:title="@string/fixAxis" android:id="@+id/menuItemFixAxis"></item><item android:id="@+id/menuItemStartBenchmark" android:title="@string/startBenchmark"></item>
+<item android:id="@+id/menuItemToggleApproximateRendering" android:title="@string/toggleApproximateRendering"></item><item android:title="@string/showHideRenderBudget" android:id="@+id/menuItemShowHideRenderBudget"></item>
+
+
+
+
+</menu>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/relativeLayout"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"><de.upb.mobilerendering.gui.PolygonCountView
+        android:id="@+id/polygonCountView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="2dip"
+        android:layout_marginTop="2dip"
+        android:text="@string/polygons"
+        android:textSize="40sp" />
+
+	<de.upb.mobilerendering.gui.FrameCounter
+	    android:id="@+id/frameCounter"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_marginRight="2dip"
+	    android:layout_marginTop="2dip"
+	    android:text="@string/fps"
+	    android:textSize="40sp" />
+
+	<de.upb.mobilerendering.gui.BudgetSlider
+	android:id="@+id/budgetSlider"
+	android:layout_width="fill_parent"
+	android:layout_alignParentBottom="true" android:layout_height="60dip" android:layout_marginBottom="3dip" android:layout_marginLeft="10dip" android:layout_marginRight="10dip"/>
+
+	<de.upb.mobilerendering.gui.RotationView
+	android:id="@+id/rotationView"
+	android:layout_width="70dip"
+	android:layout_height="70dip"
+	android:layout_alignParentBottom="true"
+	android:layout_alignParentLeft="true"
+	android:layout_marginBottom="60dip"
+	android:layout_marginLeft="60dip"/>
+
+	<de.upb.mobilerendering.gui.MovementView
+	android:id="@+id/movementView"
+	android:layout_width="70dip"
+	android:layout_height="70dip"
+	android:layout_alignParentBottom="true"
+	android:layout_alignParentRight="true"
+	android:layout_marginBottom="60dip"
+	android:layout_marginRight="60dip"/>
+
+</RelativeLayout>

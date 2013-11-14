@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="app_name">MobileRendering</string>
+<string name="fps">fps</string>
+<string name="loadScene">Load Scene</string>
+<string name="loadingScene">Loading scene</string>
+<string name="polygons">polygons</string>
+<string name="startBenchmark">Start Benchmark</string>
+<string name="showHideRenderBudget">Show / Hide Render Budget</string>
+<string name="resetCamera">Reset Camera</string>
+<string name="fixAxis">Fix / Unfix Y-Axis</string>
+<string name="toggleApproximateRendering">Toggle Approximate Rendering</string>
+</resources>
