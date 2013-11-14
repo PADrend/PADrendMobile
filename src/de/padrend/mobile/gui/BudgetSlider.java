@@ -48,7 +48,6 @@ public class BudgetSlider extends LinearLayout implements OnSeekBarChangeListene
 		return _seekBar.getProgress();
 	}
 
-	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
 		if(fromUser) {
 			// Round progress value to multiples of BUDGET_STEP
@@ -57,11 +56,9 @@ public class BudgetSlider extends LinearLayout implements OnSeekBarChangeListene
 		_textView.setText(String.format("%,d", getBudget()));
 	}
 
-	@Override
 	public void onStartTrackingTouch(SeekBar seekBar) {
 	}
 
-	@Override
 	public void onStopTrackingTouch(SeekBar seekBar) {
 	}
 }
