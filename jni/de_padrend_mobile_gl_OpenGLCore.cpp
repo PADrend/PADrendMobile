@@ -8,7 +8,7 @@
  * You should have received a copy of the MPL along with this project; see the
  * file LICENSE. If not, you can obtain one at http://mozilla.org/MPL/2.0/.
  */
-#include "de_upb_mobilerendering_gl_OpenGLCore.h"
+#include "de_padrend_mobile_gl_OpenGLCore.h"
 
 #include <MinSG/Core/Behaviours/BehaviourManager.h>
 #include <MinSG/Core/Nodes/CameraNode.h>
@@ -53,7 +53,7 @@
 
 #include <android/log.h>
 
-#define  LOG_TAG    "MobileRendering"
+#define  LOG_TAG    "PADrendMobile"
 #define  LOGD(...)  __android_log_print(ANDROID_LOG_DEBUG,LOG_TAG,__VA_ARGS__)
 #define  LOGI(...)  __android_log_print(ANDROID_LOG_INFO,LOG_TAG,__VA_ARGS__)
 #define  LOGW(...)  __android_log_print(ANDROID_LOG_WARN,LOG_TAG,__VA_ARGS__)
@@ -73,7 +73,7 @@ std::ofstream benchmarkFile;
 
 bool fixAxis = false;
 
-JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_onSystemInit(JNIEnv *, jclass) {
+JNIEXPORT void JNICALL Java_de_padrend_mobile_gl_OpenGLCore_onSystemInit(JNIEnv *, jclass) {
 	Util::init();
 
 	Rendering::enableGLErrorChecking();
@@ -107,7 +107,7 @@ JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_onSystemInit(JN
 	LOGD("Init finished.");
 }
 
-JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_onDrawFrame(JNIEnv * env, jclass jClass)
+JNIEXPORT void JNICALL Java_de_padrend_mobile_gl_OpenGLCore_onDrawFrame(JNIEnv * env, jclass jClass)
 {
 	if(benchmark) {
 		LOGD("Benchmark progress: %f/%f", pathCounter, pathCounterMax);
@@ -131,14 +131,14 @@ JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_onDrawFrame(JNI
 			LOGD("Benchmark finished!");
 			if(!benchmarkBudgets.empty()) {
 				// Start the next benchmark.
-				Java_de_upb_mobilerendering_gl_OpenGLCore_startBenchmark(env, jClass);
+				Java_de_padrend_mobile_gl_OpenGLCore_startBenchmark(env, jClass);
 			}
 		}
 		pathCounter += pathCounterIncrement;
 	}
 }
 
-JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_onSurfaceChanged(JNIEnv *, jclass, jint width, jint height)
+JNIEXPORT void JNICALL Java_de_padrend_mobile_gl_OpenGLCore_onSurfaceChanged(JNIEnv *, jclass, jint width, jint height)
 {
 	LOGD("onSurfaceChanged (width=%d, height=%d)", width, height);
 	Geometry::Rect_i windowRect(0, 0, width, height);
@@ -149,7 +149,7 @@ JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_onSurfaceChange
 	context->getRenderingContext().setWindowClientArea(windowRect);
 }
 
-JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_onSurfaceCreated(JNIEnv * env, jclass, jstring currentScenePath)
+JNIEXPORT void JNICALL Java_de_padrend_mobile_gl_OpenGLCore_onSurfaceCreated(JNIEnv * env, jclass, jstring currentScenePath)
 {
 	LOGD("onSurfaceCreated");
 	{
@@ -238,8 +238,8 @@ JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_onSurfaceCreate
 	GET_GL_ERROR()
 
 	{
-		Util::FileName vsFileName("/sdcard/MobileRendering/shader/SimplifiedPhongShader.vs");
-		Util::FileName fsFileName("/sdcard/MobileRendering/shader/SimplifiedPhongShader.fs");
+		Util::FileName vsFileName("/sdcard/PADrendMobile/shader/SimplifiedPhongShader.vs");
+		Util::FileName fsFileName("/sdcard/PADrendMobile/shader/SimplifiedPhongShader.fs");
 
 		Rendering::Shader * shader = Rendering::Shader::loadShader(vsFileName, fsFileName, Rendering::Shader::USE_UNIFORMS);
 		context->getRenderingContext().pushAndSetShader(shader);
@@ -247,7 +247,7 @@ JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_onSurfaceCreate
 	LOGD("Shader added.");
 }
 
-JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_interact(JNIEnv *, jclass,
+JNIEXPORT void JNICALL Java_de_padrend_mobile_gl_OpenGLCore_interact(JNIEnv *, jclass,
 																		  jfloat rotationY,
 																		  jfloat rotationX,
 																		  jfloat movementZ,
@@ -269,7 +269,7 @@ JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_interact(JNIEnv
 	}
 }
 
-JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_startBenchmark(JNIEnv *, jclass)
+JNIEXPORT void JNICALL Java_de_padrend_mobile_gl_OpenGLCore_startBenchmark(JNIEnv *, jclass)
 {
 	if(!benchmark) {
 		if(!benchmarkBudgets.empty()) {
@@ -322,26 +322,26 @@ JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_startBenchmark(
 		}
 
 		fileName += ".tsv";
-		benchmarkFile.open(std::string("/sdcard/MobileRendering/") + fileName, std::ios_base::out | std::ios_base::trunc);
+		benchmarkFile.open(std::string("/sdcard/PADrendMobile/") + fileName, std::ios_base::out | std::ios_base::trunc);
 		benchmarkFile << "Point\tFrameDuration\tNumTriangles\n";
 		benchmark = true;
 		LOGD("Benchmark started!");
 	}
 }
 
-JNIEXPORT jint JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_getRenderedPolygonCount(JNIEnv *, jclass)
+JNIEXPORT jint JNICALL Java_de_padrend_mobile_gl_OpenGLCore_getRenderedPolygonCount(JNIEnv *, jclass)
 {
 	return context->getStatistics().getValueAsInt(context->getStatistics().getTrianglesCounter());
 }
 
-JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_resetCamera(JNIEnv *, jclass) {
+JNIEXPORT void JNICALL Java_de_padrend_mobile_gl_OpenGLCore_resetCamera(JNIEnv *, jclass) {
 	if(camera != nullptr) {
 		camera->reset();
 		fixAxis = false;
 	}
 }
 
-JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_setBudget(JNIEnv *, jclass, jint budget)
+JNIEXPORT void JNICALL Java_de_padrend_mobile_gl_OpenGLCore_setBudget(JNIEnv *, jclass, jint budget)
 {
 	const auto budgetRendererStates = MinSG::collectStates<MinSG::SphericalSampling::BudgetRenderer>(root.get());
 	if(budgetRendererStates.empty()) {
@@ -354,7 +354,7 @@ JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_setBudget(JNIEn
 	LOGD("Configured %d BudgetRenderers.", budgetRendererStates.size());
 }
 
-JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_toggleApproximateRendering (JNIEnv *, jclass)
+JNIEXPORT void JNICALL Java_de_padrend_mobile_gl_OpenGLCore_toggleApproximateRendering (JNIEnv *, jclass)
 {
 	const auto budgetRendererStates = MinSG::collectStates<MinSG::SphericalSampling::BudgetRenderer>(root.get());
 	if(budgetRendererStates.empty()) {
@@ -372,7 +372,7 @@ JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_toggleApproxima
 	LOGD("%s %d BudgetRenderers.", enableAll ? "Enabled" : "Disabled", budgetRendererStates.size());
 }
 
-JNIEXPORT void JNICALL Java_de_upb_mobilerendering_gl_OpenGLCore_toggleFixAxis(JNIEnv *, jclass)
+JNIEXPORT void JNICALL Java_de_padrend_mobile_gl_OpenGLCore_toggleFixAxis(JNIEnv *, jclass)
 {
 	fixAxis = !fixAxis;
 }

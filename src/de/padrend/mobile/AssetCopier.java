@@ -7,7 +7,7 @@
  * You should have received a copy of the MPL along with this project; see the
  * file LICENSE. If not, you can obtain one at http://mozilla.org/MPL/2.0/.
  */
-package de.upb.mobilerendering;
+package de.padrend.mobile;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -25,7 +25,7 @@ public class AssetCopier
 	/**
 	 * Path to which the assets should be copied with a trailing "/"
 	 */
-	private static final String pathToCopyTo = "/sdcard/MobileRendering/";
+	private static final String pathToCopyTo = "/sdcard/PADrendMobile/";
 	
 	/**
 	 * List of absolute path names of files which should be ignored when copying.
@@ -44,11 +44,11 @@ public class AssetCopier
 		if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState()))
 		{
 			try {
-				Log.d(MobileRendering.LOG_TAG, "Copying assets:");
+				Log.d(PADrendMobile.LOG_TAG, "Copying assets:");
 				copyRecursive(context, "");
 			} catch (IOException e) {
-				Log.e(MobileRendering.LOG_TAG, "Error copying the assets.");
-				Log.e(MobileRendering.LOG_TAG, e.getMessage());
+				Log.e(PADrendMobile.LOG_TAG, "Error copying the assets.");
+				Log.e(PADrendMobile.LOG_TAG, e.getMessage());
 				System.exit(-1);
 			}
 		}
@@ -66,7 +66,7 @@ public class AssetCopier
 		if(path.equals(""))
 		{
 			if(files.length == 0)
-				Log.d(MobileRendering.LOG_TAG, "\tnone");
+				Log.d(PADrendMobile.LOG_TAG, "\tnone");
 		} else {
 			path += "/";
 		}
@@ -93,7 +93,7 @@ public class AssetCopier
 	 */
 	private static void copyFile(Context context, String fileName) throws IOException
 	{
-		Log.d(MobileRendering.LOG_TAG, "\t" + fileName);
+		Log.d(PADrendMobile.LOG_TAG, "\t" + fileName);
 		
 		File file = new File(pathToCopyTo + fileName);
 		

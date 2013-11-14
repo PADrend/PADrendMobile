@@ -8,15 +8,15 @@
  * You should have received a copy of the MPL along with this project; see the
  * file LICENSE. If not, you can obtain one at http://mozilla.org/MPL/2.0/.
  */
-package de.upb.mobilerendering.gl;
+package de.padrend.mobile.gl;
 
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import de.upb.mobilerendering.MobileRendering;
-import de.upb.mobilerendering.gui.BudgetSlider;
-import de.upb.mobilerendering.gui.FrameCounter;
-import de.upb.mobilerendering.gui.PolygonCountView;
+import de.padrend.mobile.PADrendMobile;
+import de.padrend.mobile.gui.BudgetSlider;
+import de.padrend.mobile.gui.FrameCounter;
+import de.padrend.mobile.gui.PolygonCountView;
 
 import android.opengl.GLSurfaceView.Renderer;
 
@@ -68,6 +68,6 @@ public class RendererProxy implements Renderer
 
 	public void onSurfaceCreated(GL10 gl, EGLConfig config)
 	{		
-		OpenGLCore.onSurfaceCreated(MobileRendering.getCurrentScenePath());
+		OpenGLCore.onSurfaceCreated(PADrendMobile.getCurrentScenePath());
 	}
 }

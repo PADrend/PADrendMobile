@@ -8,9 +8,9 @@
  * You should have received a copy of the MPL along with this project; see the
  * file LICENSE. If not, you can obtain one at http://mozilla.org/MPL/2.0/.
  */
-package de.upb.mobilerendering.gui;
+package de.padrend.mobile.gui;
 
-import de.upb.mobilerendering.R;
+import de.padrend.mobile.R;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;

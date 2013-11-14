@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@+id/relativeLayout"
 android:layout_width="fill_parent"
-android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"><de.upb.mobilerendering.gui.PolygonCountView
+android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"><de.padrend.mobile.gui.PolygonCountView
         android:id="@+id/polygonCountView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -12,7 +12,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
         android:text="@string/polygons"
         android:textSize="40sp" />
 
-	<de.upb.mobilerendering.gui.FrameCounter
+	<de.padrend.mobile.gui.FrameCounter
 	    android:id="@+id/frameCounter"
 	    android:layout_width="wrap_content"
 	    android:layout_height="wrap_content"
@@ -23,12 +23,12 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
 	    android:text="@string/fps"
 	    android:textSize="40sp" />
 
-	<de.upb.mobilerendering.gui.BudgetSlider
+	<de.padrend.mobile.gui.BudgetSlider
 	android:id="@+id/budgetSlider"
 	android:layout_width="fill_parent"
 	android:layout_alignParentBottom="true" android:layout_height="60dip" android:layout_marginBottom="3dip" android:layout_marginLeft="10dip" android:layout_marginRight="10dip"/>
 
-	<de.upb.mobilerendering.gui.RotationView
+	<de.padrend.mobile.gui.RotationView
 	android:id="@+id/rotationView"
 	android:layout_width="70dip"
 	android:layout_height="70dip"
@@ -37,7 +37,7 @@ android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/ap
 	android:layout_marginBottom="60dip"
 	android:layout_marginLeft="60dip"/>
 
-	<de.upb.mobilerendering.gui.MovementView
+	<de.padrend.mobile.gui.MovementView
 	android:id="@+id/movementView"
 	android:layout_width="70dip"
 	android:layout_height="70dip"

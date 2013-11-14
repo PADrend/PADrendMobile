@@ -8,13 +8,13 @@
  * You should have received a copy of the MPL along with this project; see the
  * file LICENSE. If not, you can obtain one at http://mozilla.org/MPL/2.0/.
  */
-package de.upb.mobilerendering.gui;
+package de.padrend.mobile.gui;
 
 import java.io.File;
 import java.util.LinkedList;
 
-import de.upb.mobilerendering.MobileRendering;
-import de.upb.mobilerendering.R;
+import de.padrend.mobile.PADrendMobile;
+import de.padrend.mobile.R;
 import android.app.ListActivity;
 import android.os.Bundle;
 import android.os.Environment;
@@ -34,7 +34,7 @@ public class LoadSceneActivity extends ListActivity implements OnItemClickListen
 	/**
 	 * The directory on the sd card that contains the scenes.
 	 */
-	private static final String SCENES_DIRECTORY = "/sdcard/MobileRendering/scene/";
+	private static final String SCENES_DIRECTORY = "/sdcard/PADrendMobile/scene/";
 	
 	/**
 	 * An array of addresses to scenes in the network.
@@ -68,7 +68,7 @@ public class LoadSceneActivity extends ListActivity implements OnItemClickListen
         
         if(scenes.size() == 0) {
         	Toast.makeText(this, "No scenes available.", Toast.LENGTH_LONG).show();
-        	Log.e(MobileRendering.LOG_TAG, "No scenes available.");
+        	Log.e(PADrendMobile.LOG_TAG, "No scenes available.");
         	setResult(RESULT_CANCELED);
         	finish();
         } else {  
@@ -80,9 +80,9 @@ public class LoadSceneActivity extends ListActivity implements OnItemClickListen
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		String message = getString(R.string.loadingScene) + " " + scenes.get(position) + " ...";
 		Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-		Log.d(MobileRendering.LOG_TAG, message);
+		Log.d(PADrendMobile.LOG_TAG, message);
 		
-		MobileRendering.setCurrentScenePath(scenes.get(position));
+		PADrendMobile.setCurrentScenePath(scenes.get(position));
 		
 		setResult(RESULT_OK);
     	finish();

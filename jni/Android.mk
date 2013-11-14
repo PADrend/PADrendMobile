@@ -35,7 +35,7 @@ LOCAL_STATIC_LIBRARIES := curl-prebuilt \
 						  Detri-prebuilt \
 						  libpng-prebuilt \
 						  libzip-prebuilt
-LOCAL_SRC_FILES 	:= 	de_upb_mobilerendering_gl_OpenGLCore.cpp \
+LOCAL_SRC_FILES 	:= 	de_padrend_mobile_gl_OpenGLCore.cpp \
 				Geometry/BoundingSphere.cpp \
 				Geometry/BoxHelper.cpp \
 				Geometry/BoxIntersection.cpp \

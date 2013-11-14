@@ -7,7 +7,7 @@
  * You should have received a copy of the MPL along with this project; see the
  * file LICENSE. If not, you can obtain one at http://mozilla.org/MPL/2.0/.
  */
-package de.upb.mobilerendering.gl;
+package de.padrend.mobile.gl;
 
 /**
  * A Thread to receive interactions from the GUI and accumulate them fixed interval.

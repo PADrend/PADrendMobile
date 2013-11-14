@@ -8,7 +8,7 @@
  * You should have received a copy of the MPL along with this project; see the
  * file LICENSE. If not, you can obtain one at http://mozilla.org/MPL/2.0/.
  */
-package de.upb.mobilerendering;
+package de.padrend.mobile;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -23,25 +23,26 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
-import de.upb.mobilerendering.gl.InputProxy;
-import de.upb.mobilerendering.gl.OpenGLCore;
-import de.upb.mobilerendering.gl.RendererProxy;
-import de.upb.mobilerendering.gui.BudgetSlider;
-import de.upb.mobilerendering.gui.FrameCounter;
-import de.upb.mobilerendering.gui.LoadSceneActivity;
-import de.upb.mobilerendering.gui.MovementView;
-import de.upb.mobilerendering.gui.PolygonCountView;
-import de.upb.mobilerendering.gui.RotationView;
+import de.padrend.mobile.R;
+import de.padrend.mobile.gl.InputProxy;
+import de.padrend.mobile.gl.OpenGLCore;
+import de.padrend.mobile.gl.RendererProxy;
+import de.padrend.mobile.gui.BudgetSlider;
+import de.padrend.mobile.gui.FrameCounter;
+import de.padrend.mobile.gui.LoadSceneActivity;
+import de.padrend.mobile.gui.MovementView;
+import de.padrend.mobile.gui.PolygonCountView;
+import de.padrend.mobile.gui.RotationView;
 
 /**
  * The main Activity of the application.
  */
-public class MobileRendering extends Activity
+public class PADrendMobile extends Activity
 {
 	/**
 	 * Log-Tag used for all of the logging in this application.
 	 */
-	public static final String LOG_TAG = "MobileRendering";
+	public static final String LOG_TAG = "PADrendMobile";
 	
 	private static String _currentScenePath = "";
 	
@@ -53,7 +54,7 @@ public class MobileRendering extends Activity
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
-    	Log.d(LOG_TAG, "MobileRendering.onCreate()");
+    	Log.d(LOG_TAG, "PADrendMobile.onCreate()");
     	
         super.onCreate(savedInstanceState);
         
@@ -101,7 +102,7 @@ public class MobileRendering extends Activity
     @Override
     protected void onResume()
     {
-    	Log.d(LOG_TAG, "MobileRendering.onResume()");
+    	Log.d(LOG_TAG, "PADrendMobile.onResume()");
     	
         super.onResume();
         _inputProxy.onResume();
@@ -111,7 +112,7 @@ public class MobileRendering extends Activity
     @Override
     protected void onPause()
     {
-    	Log.d(LOG_TAG, "MobileRendering.onPause()");
+    	Log.d(LOG_TAG, "PADrendMobile.onPause()");
     	
         super.onPause();
         _surfaceView.onPause();
@@ -185,6 +186,6 @@ public class MobileRendering extends Activity
 
 	public static void setCurrentScenePath(String _currentScenePath)
 	{
-		MobileRendering._currentScenePath = _currentScenePath;
+		PADrendMobile._currentScenePath = _currentScenePath;
 	}
 }

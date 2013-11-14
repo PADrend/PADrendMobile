@@ -8,7 +8,7 @@
  * You should have received a copy of the MPL along with this project; see the
  * file LICENSE. If not, you can obtain one at http://mozilla.org/MPL/2.0/.
  */
-package de.upb.mobilerendering.gui;
+package de.padrend.mobile.gui;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -16,11 +16,11 @@ import android.util.AttributeSet;
 /**
  * A joystick-like View for movement. 
  */
-public class MovementView extends ControlView
+public class RotationView extends ControlView
 {
-	private float FACTOR = 0.05f; 
+	private float FACTOR = 0.5f;
 	
-	public MovementView(Context context, AttributeSet attrs)
+	public RotationView(Context context, AttributeSet attrs)
 	{
 		super(context, attrs);
 	}
@@ -29,13 +29,13 @@ public class MovementView extends ControlView
 	protected void onXValueChanged(float value)
 	{
 		if(_inputProxy != null)
-			_inputProxy.setMovementX(FACTOR * value);
+			_inputProxy.setRotationY(FACTOR * value);
 	}
 
 	@Override
 	protected void onYValueChanged(float value)
 	{
 		if(_inputProxy != null)
-			_inputProxy.setMovementZ(FACTOR * value);	
+			_inputProxy.setRotationX(FACTOR * value);
 	}
 }
