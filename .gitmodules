@@ -1,0 +1,15 @@
+[submodule "jni/Util"]
+	path = jni/Util
+	url = git@github.com:PADrend/Util.git
+[submodule "jni/Geometry"]
+	path = jni/Geometry
+	url = git@github.com:PADrend/Geometry.git
+[submodule "jni/Rendering"]
+	path = jni/Rendering
+	url = git@github.com:PADrend/Rendering.git
+[submodule "jni/MinSG"]
+	path = jni/MinSG
+	url = git@github.com:PADrend/MinSG.git
+[submodule "jni/ThirdParty"]
+	path = jni/ThirdParty
+	url = git@github.com:PADrend/PADrendMobileThirdParty.git
